@@ -37,7 +37,7 @@ const teamData = {
     { name: "Samarjit Singh", role: "Payload & Recovery", image: Samarjit },
   ],
   "Structures": [
-    { name: "Structures Head", role: "Structures Head" },
+    { name: "Subha Priya", role: "Structures Head" },
     { name: "Chavi", role: "Structures" },
     { name: "Adith Ram Prasad", role: "Structures" },
     { name: "Niel Misra", role: "Structures" },
