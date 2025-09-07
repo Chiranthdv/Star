@@ -5,7 +5,9 @@ export default function Conferences() {
   return (
     <div>
       <div id="logo">
-        <img src={profilePic} alt="logo" />
+        <a href="/">
+           <img src={profilePic} alt="Logo" className="top-left-logo" />
+        </a>
       </div>
 
       <div id="content1">

@@ -3,11 +3,14 @@ import ProfileCard from './components/ProfileCard.jsx';
 import CardBox from './components/CardBox.jsx';
 import SocialMediaSection from './components/SocialMediaSection.jsx';
 import Conferences from './pages/Conferences.jsx';
+import MeetOurTeam from './pages/MeetOutTeam.jsx';
+import WorkShops from './pages/WorkShops.jsx';
+import Orientations from './pages/Orientations.jsx';
 import profilePic from './assets/profile.png';   // adjust if needed
 //import background from './assets/background.avif';
 import { Routes, Route } from 'react-router-dom'; //added
 import StardustBackground from './components/StardustBackground.jsx';
-
+import ScrollToTop from  './components/ScrollToTop.jsx';
 
 const demoProfile = {
   title:"Welcome to ",
@@ -19,38 +22,44 @@ const demoProfile = {
 export default function App() {
   return (
     <>
-      <StardustBackground />
-      <div
-        style={{
-          minHeight: '100vh',
-          padding: '1rem',
-          backgroundSize: 'cover',
-          backgroundAttachment: 'fixed',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          overflowY: 'auto',
-          position: 'relative', // Important to stack over canvas
-          zIndex: 1,
-        }}
-      >
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <ProfileCard profile={demoProfile} />
-                <CardBox icon="🎓" title="Who We Are" href="https://www.teamstardust.in/" />
-                <CardBox icon="📢" title="Orientations" href="https://www.teamstardust.in/team" />
-                <CardBox icon="🤝" title="Meet Our Team" href="https://www.teamstardust.in/divisions" />
-                <CardBox icon="🛠" title="Workshops" href="https://www.teamstardust.in/gallery" />
-                <CardBox icon="🎤" title="Conferences" href="/conferences" />
-                <SocialMediaSection />
-              </>
-            }
-          />
-          <Route path="/conferences" element={<Conferences />} />
-        </Routes>
-      </div>
+    <ScrollToTop />
+      <Routes>
+  <Route
+    path="/"
+    element={
+      <>
+        <StardustBackground />
+        <div
+          style={{
+            minHeight: '100vh',
+            padding: '1rem',
+            backgroundSize: 'cover',
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            overflowY: 'auto',
+            position: 'relative',
+            zIndex: 1,
+          }}
+        >
+          <ProfileCard profile={demoProfile} />
+          <CardBox icon="🎓" title="Who We Are" href="https://www.teamstardust.in/" />
+          <CardBox icon="📢" title="Orientations" href="/orientations" />
+          <CardBox icon="🤝" title="Meet Our Team" href="/meetourteam" />
+          <CardBox icon="🛠" title="Workshops" href="/workshops" />
+          <CardBox icon="🎤" title="Conferences" href="/conferences" />
+          <SocialMediaSection />
+        </div>
+      </>
+    }
+  />
+
+  {/* Other routes have separate layouts */}
+  <Route path="/conferences" element={<Conferences />} />
+  <Route path="/meetourteam" element={<MeetOurTeam />} />
+  <Route path="/workshops" element={<WorkShops/>} />
+  <Route path="/orientations" element={< Orientations/>}/>
+</Routes>
     </>
   );
 }

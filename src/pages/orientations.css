@@ -1,0 +1,310 @@
+/* === Base Styling === */
+.orientations-gallery {
+  padding: 2rem;
+  min-height: 100vh;
+  transition: background 0.3s ease;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.top-left-logo {
+  height: 40px;
+  width: auto;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 10;
+}
+
+.fancy-text {
+  background: linear-gradient(90deg, #00ffc3, #00aaff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { filter: drop-shadow(0 0 3px #00ffc3); }
+  to { filter: drop-shadow(0 0 8px #00ffc3); }
+}
+
+.orientations-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.orientations-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.media-select,
+.toggle-mode {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.toggle-mode {
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.orientations-gallery.dark {
+  background-color: #111822;
+  color: white;
+}
+
+.orientations-gallery.light {
+  background-color: #f3f3f3;
+  color: #000;
+}
+
+.orientations-gallery.dark .toggle-mode {
+  background: #00ffc3;
+  color: #111;
+}
+
+.orientations-gallery.light .toggle-mode {
+  background: #111;
+  color: white;
+}
+
+.orientations-gallery.dark .media-select {
+  background: #222;
+  color: #fff;
+  border: 1px solid #00ffc3;
+}
+
+.orientations-gallery.light .media-select {
+  background: #fff;
+  color: #000;
+}
+
+/* === Carousel === */
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.carousel-btn {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #00ffc3;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.carousel-btn:hover {
+  transform: scale(1.2);
+}
+
+.carousel-item {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 255, 195, 0.2);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-item img,
+.carousel-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* === Grid === */
+.orientation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.orientation-card {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 255, 195, 0.15);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orientation-card img,
+.orientation-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.orientation-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 255, 195, 0.3);
+}
+
+/* === Reveal Animation === */
+.orientation-card.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.orientation-card.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* === Modal === */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: 16px;
+  overflow: hidden;
+  animation: zoomIn 0.3s ease-out;
+  background: #000;
+}
+
+.modal-content img,
+.modal-content video {
+  max-height: 80vh;
+  max-width: 90vw;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: #00ffc3;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  padding: 6px 10px;
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* === View All Button === */
+.view-all-wrapper {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.view-all-btn {
+  padding: 0.7rem 1.5rem;
+  background-color: #00ffc3;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.view-all-btn:hover {
+  background-color: #00ccaa;
+}
+
+/* === Responsive Enhancements === */
+@media (max-width: 768px) {
+  .orientations-title {
+    font-size: 2rem;
+  }
+
+  .orientation-card {
+    height: 180px;
+  }
+
+  .carousel-btn {
+    font-size: 1.5rem;
+  }
+
+  .top-left-logo {
+    height: 36px;
+    top: 12px;
+    left: 12px;
+  }
+
+  .carousel-item {
+    max-width: 95vw;
+    aspect-ratio: 16 / 9;
+  }
+
+  .header-controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .orientations-title {
+    font-size: 1.6rem;
+  }
+
+  .carousel-btn {
+    font-size: 1.2rem;
+  }
+
+  .orientation-card {
+    height: 160px;
+  }
+}

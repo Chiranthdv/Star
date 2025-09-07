@@ -75,7 +75,7 @@ export default function SocialMediaSection() {
   const socialLinks = [
     { icon: <FaGlobe />, title: 'StartDust Website', url: 'https://www.teamstardust.in/' },
     { icon: <FaTelegramPlane />, title: 'Telegram', url: 'https://t.me/teamstardust' },
-    { icon: <FaDiscord />, title: 'Discord', url: 'https://discord.gg/teamstardust' },
+    { icon: <FaDiscord />, title: 'Instagram', url: 'https://www.instagram.com/rit_stardust?igsh=ZWdrYXB4N3NsNWxw' },
     { icon: <FaLinkedin />, title: 'LinkedIn', url: 'https://www.linkedin.com/company/rit-stardust/' },
   ];
 
